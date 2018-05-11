@@ -42,9 +42,19 @@ const getsec = (str) => {
     }
 }
 
+const del = (name) => {
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval = getCookie(name);
+    if(cval != null) {
+        document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+    }
+}
+
 export default{
     'getCookie': getCookie,
-    'setCookie': setCookie
+    'setCookie': setCookie,
+    'del': del
 };
 
 
